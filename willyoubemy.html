@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Yes or No</title>
+  <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+  <style>
+    body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #fff5f5;
+        font-family: 'Indie Flower', cursive;
+        overflow: hidden;
+    }
+
+    .container {
+        text-align: center;
+        background-color: #ffebee;
+        padding: 40px;
+        border-radius: 20px;
+        border: 3px solid #ff6b81;
+        box-shadow: 0 8px 20px rgba(255, 107, 129, 0.3);
+        max-width: 400px;
+        width: 90%;
+    }
+
+    .header_text {
+        font-size: 32px;
+        color: #ff6b81;
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 4px rgba(255, 107, 129, 0.2);
+    }
+
+    .gif_container img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+        margin-bottom: 20px;
+    }
+
+    .buttons {
+        margin-top: 20px;
+        position: relative; /* So the No button can be absolutely positioned */
+        height: 100px;
+    }
+
+    .btn {
+        padding: 12px 24px;
+        font-size: 20px;
+        border: 2px solid #ff6b81;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        background-color: #ff6b81;
+        color: white;
+        font-family: 'Indie Flower', cursive;
+        box-shadow: 0 4px 10px rgba(255, 107, 129, 0.3);
+    }
+
+    .btn:hover {
+        background-color: white;
+        color: #ff6b81;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 15px rgba(255, 107, 129, 0.4);
+    }
+
+    #noButton {
+        background-color: #ff4757;
+        border-color: #ff4757;
+        position: absolute; /* So it can move inside .buttons */
+    }
+
+    #noButton:hover {
+        background-color: white;
+        color: #ff4757;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="header_text">Will you be my Girlfriend?</div>
+
+  <div class="gif_container">
+    <img src="https://media.tenor.com/X_TEp5v_GqUAAAAi/cat-bug.gif" alt="Funny Cat">
+  </div>
+
+  <div class="buttons" id="buttonContainer">
+    <button class="btn" onclick="window.location.href='file:///C:/Users/Administrator/Documents/yes.html'">Yes</button>
+    <button class="btn" id="noButton">No</button>
+  </div>
+</div>
+
+<script>
+  const noBtn = document.getElementById('noButton');
+  const container = document.getElementById('buttonContainer');
+
+  noBtn.addEventListener('mouseenter', () => {
+    const containerWidth = container.offsetWidth;
+    const containerHeight = container.offsetHeight;
+    const btnWidth = noBtn.offsetWidth;
+    const btnHeight = noBtn.offsetHeight;
+
+    const maxX = containerWidth - btnWidth;
+    const maxY = containerHeight - btnHeight;
+
+    const randomX = Math.floor(Math.random() * maxX);
+    const randomY = Math.floor(Math.random() * maxY);
+
+    noBtn.style.left = `${randomX}px`;
+    noBtn.style.top = `${randomY}px`;
+  });
+</script>
+
+</body>
+</html>
